@@ -1,0 +1,40 @@
+@startuml
+Title: Tweet
+
+class User {
+    name: String,
+    handle: String,
+    profilPicture: String,
+
+    email: String,
+    bio: String,
+    location: String,
+    website: String,
+    createdAt: Date,
+    following: [User],
+    followers: [User],
+    tweets: [Tweet],
+    likedTweets: [Tweet],
+    
+
+    follow(user: User)
+        
+    tweet(tweet: Tweet)
+    
+    retweet(tweet: Tweet)
+
+    like(tweet: Tweet) 
+}
+
+class Tweet {
+    author: User,
+    createdAt: Date,
+    body: String,
+    replies: [Tweet],
+    likes: [User],
+    retweets: [Tweet],
+    originalTweet: Tweet,
+    attachments: []
+}
+
+@enduml
