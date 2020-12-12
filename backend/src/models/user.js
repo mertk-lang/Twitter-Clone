@@ -24,18 +24,22 @@ const userSchema = new mongoose.Schema(
     following: [{
       type: mongoose.Schema.Types.ObjectId,
       ref: "User",
+      autopopulate: { maxDepth: 1}
     }],
     followers: [{ 
       type: mongoose.Schema.Types.ObjectId,
       ref: "User",
+      autopopulate: { maxDepth: 1}
     }],
     tweets: [{
       type: mongoose.Schema.Types.ObjectId,
-      ref: "Tweet"
+      ref: "Tweet",
+      autopopulate: { maxDepth: 3}
     }],
     likedTweets: [{
       type: mongoose.Schema.Types.ObjectId,
-      ref: "Tweet"
+      ref: "Tweet",
+      autopopulate: { maxDepth: 1}
     }],
   },
   { timestamps: true }

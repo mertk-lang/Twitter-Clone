@@ -1,5 +1,3 @@
-Title: Tweet
-
 class User {
     profilPicture = "";
     bio = "";
@@ -59,7 +57,7 @@ const rainyroute = new User("Mert Koçak", "rainyroute", "mertfor4_dev@outlook.c
 const KaanTurambar = new User("Kaan Turambar", "KaanTurambar", "kaan_34@hotmail.com")
 
 const Tweet1 = new Tweet("Hello", rainyroute)
-rainyroute.tweet(Tweet);
+rainyroute.tweet(Tweet1);
 KaanTurambar.retweet(Tweet1);
 
 console.log(rainyroute, KaanTurambar);

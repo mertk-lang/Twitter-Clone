@@ -5,7 +5,9 @@ const tweetSchema = new mongoose.Schema(
   {
    author: {
        type: mongoose.Schema.Types.ObjectId,
-       ref: "User"
+       ref: "User",
+       autopopulate: { select: 'handle'},
+       required: true
    },
    body: {
        type: String,
@@ -13,11 +15,13 @@ const tweetSchema = new mongoose.Schema(
    },
    replies: [{
        type: mongoose.Schema.Types.ObjectId,
-       ref: "Tweet"
+       ref: "Tweet",
+       autopopulate: { select: 'handle'}
    }],
    likes: [{
        type: mongoose.Schema.Types.ObjectId,
-       ref: "User"
+       ref: "User",
+       autopopulate: { select: 'handle'},
    }],
    retweets: [{
        type: mongoose.Schema.Types.ObjectId,
@@ -25,7 +29,8 @@ const tweetSchema = new mongoose.Schema(
    }],
    originalTweet: {
        type: mongoose.Schema.Types.ObjectId,
-       ref: "Tweet"
+       ref: "Tweet",
+       autopopulate: { maxDepth: 1},
    },
    attachments: []
   },
